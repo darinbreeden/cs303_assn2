@@ -3,6 +3,7 @@
 
 class stack : public linked{
 public:
+  //Create stack from linked
   stack() : linked(){}
   void addNode(string d){
     node* newNode = new node;
@@ -26,11 +27,14 @@ public:
 
   float avg() {
     float sum = 0;
+    //Create temp to hold head
     node* temp = head;
+    //Iterate through stack, updating temp and adding its "type" to sum
     for (int i = 0; i < num_items; i++) {
       sum += stof(temp->type);
       temp = temp->next;
     }
+    //Delete temp and return avg (sum / num_items)
     delete temp;
     temp->next = nullptr;
     return sum / num_items;
